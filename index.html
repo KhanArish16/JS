@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      input {
+        padding: 8px;
+        width: 200px;
+      }
+      button {
+        padding: 6px 12px;
+        margin-left: 5px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin: 8px 0;
+      }
+      .edit {
+        color: blue;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .delete {
+        color: red;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h2>✅ To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter task" />
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul> -->
+
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+
+    <!-- <script>
+      function addTask() {
+        const input = document.getElementById("taskInput");
+        const taskText = input.value.trim();
+        if (taskText === "") return alert("Please enter a task");
+
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        span.textContent = taskText;
+
+        // Edit button
+        const editBtn = document.createElement("span");
+        editBtn.textContent = "✏️ Edit";
+        editBtn.className = "edit";
+        editBtn.onclick = function () {
+          const newTask = prompt("Edit task:", span.textContent);
+          if (newTask !== null && newTask.trim() !== "") {
+            span.textContent = newTask;
+          }
+        };
+
+        // Delete button
+        const deleteBtn = document.createElement("span");
+        deleteBtn.textContent = "🗑️ Delete";
+        deleteBtn.className = "delete";
+        deleteBtn.onclick = function () {
+          li.remove();
+        };
+
+        li.appendChild(span);
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+        document.getElementById("taskList").appendChild(li);
+
+        input.value = ""; // clear input
+      }
+    </script> -->
+  </body>
+  <script>
+    function handleColorChange(color) {
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+
+    document
+      .getElementById("orange")
+      .addEventListener("click", handleColorChange("orange"));
+
+    document
+      .getElementById("green")
+      .addEventListener("click", handleColorChange("green"));
+  </script>
+</html>

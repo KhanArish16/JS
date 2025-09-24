@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Press</button>
+    <div>
+      <p>button pressed :</p>
+      <p id="increment"></p>
+    </div>
+    <div>
+      <p>pressed Count :</p>
+      <p id="count"></p>
+    </div>
+  </body>
+  <script>
+    let btn = document.getElementById("btn");
+    let btnPressed = document.getElementById("increment");
+    let count = document.getElementById("count");
+
+    let triggerBtn = 0;
+    let triggercount = 0;
+
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+          fn(...args);
+        }, delay);
+      };
+    }
+
+    let debouncedCount = debounce(() => {
+      triggercount++;
+      count.innerHTML = triggercount;
+    }, 300);
+
+    btn.addEventListener("click", () => {
+      triggerBtn++;
+      btnPressed.innerHTML = triggerBtn;
+      debouncedCount();
+    });
+  </script>
+</html>

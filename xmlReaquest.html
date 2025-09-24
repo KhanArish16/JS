@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #fff">
+    <button id="crd-btn">show card</button>
+
+    <div>
+      <img src="" alt="hitesh" />
+      <h1></h1>
+    </div>
+  </body>
+  <script>
+    const btn = document.querySelector("button");
+    const name = document.querySelector("h1");
+    const img = document.querySelector("img");
+    let cardfetch = false;
+
+    const imgUrl = null;
+
+    btn.addEventListener("click", () => {
+      cardfetch = !cardfetch;
+      btn.textContent = cardfetch ? "hide Card" : "show Card";
+      const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          img.src = data.avatar_url;
+          name.textContent = data.login;
+        }
+      };
+      xhr.send();
+    });
+  </script>
+</html>

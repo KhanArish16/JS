@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="type" id="input" />
+    <p id="list"></p>
+  </body>
+
+  <script>
+    let inp = document.getElementById("input");
+    let para = document.getElementById("list");
+
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+          fn(...args);
+        }, delay);
+      };
+    }
+
+    const value = debounce((e) => {
+      console.log(e);
+
+      let list = document.createElement("li");
+      list.textContent = e;
+
+      para.appendChild(list);
+    }, 500);
+
+    inp.addEventListener("input", (e) => {
+      value(e.target.value);
+    });
+  </script>
+</html>

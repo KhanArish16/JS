@@ -41,6 +41,24 @@
       count.innerHTML = triggercount;
     }, 300);
 
+     function throttle(fn, delay) {
+      let lastCall = 0;
+      return function (...args) {
+        let now = Date.now();
+        if (now - lastCall < delay) {
+          return;
+        }
+        lastCall = now;
+
+        return fn(...args);
+      };
+    }
+
+    let throttledCount = throttle(() => {
+      triggercount++;
+      count.innerHTML = triggercount;
+    }, 1000);
+
     btn.addEventListener("click", () => {
       triggerBtn++;
       btnPressed.innerHTML = triggerBtn;
@@ -48,3 +66,4 @@
     });
   </script>
 </html>
+

@@ -43,7 +43,7 @@ function deepCopy(obj) {
 let deep = deepCopy(obj1);
 
 deep.add.city = "bhopal";
-// console.log(deep);
+console.log(deep);
 
 // Object.prototype.depCopy = function () {
 //   if (typeof this != "object " || this === null) {

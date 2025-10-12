@@ -118,8 +118,12 @@ function jsonString(value) {
   return undefined;
 }
 
-// console.log(jsonString({ a: 1, b: "hi", c: true, d: [1, 2, 3] }));
-// console.log(JSON.stringify({ a: 1, b: "hi", c: true, d: [1, 2, 3] }));
+// console.log(
+//   jsonString({ a: 1, b: "hi", c: true, d: [1, 2, 3], e: { f: "a" } })
+// );
+// console.log(
+//   JSON.stringify({ a: 1, b: "hi", c: true, d: [1, 2, 3], e: { f: "a" } })
+// );
 
 // ///////////////////////////////////////
 // ONCE FUNCTION

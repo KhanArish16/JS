@@ -24,24 +24,26 @@
     let triggerBtn = 0;
     let triggercount = 0;
 
-    function debounce(fn, delay) {
-      let timer;
-      return function (...args) {
-        if (timer) {
-          clearTimeout(timer);
-        }
-        timer = setTimeout(() => {
-          fn(...args);
-        }, delay);
-      };
-    }
+    // DEBOUNCE
+    // function debounce(fn, delay) {
+    //   let timer;
+    //   return function (...args) {
+    //     if (timer) {
+    //       clearTimeout(timer);
+    //     }
+    //     timer = setTimeout(() => {
+    //       fn(...args);
+    //     }, delay);
+    //   };
+    // }
 
-    let debouncedCount = debounce(() => {
-      triggercount++;
-      count.innerHTML = triggercount;
-    }, 300);
+    // let debouncedCount = debounce(() => {
+    //   triggercount++;
+    //   count.innerHTML = triggercount;
+    // }, 300);
 
-     function throttle(fn, delay) {
+    // THROTTLE
+    function throttle(fn, delay) {
       let lastCall = 0;
       return function (...args) {
         let now = Date.now();
@@ -62,8 +64,7 @@
     btn.addEventListener("click", () => {
       triggerBtn++;
       btnPressed.innerHTML = triggerBtn;
-      debouncedCount();
+      throttledCount();
     });
   </script>
 </html>
-

@@ -20,7 +20,7 @@
         clearTimeout(timer);
 
         timer = setTimeout(() => {
-          fn(...args);
+          fn.apply(this, ...args);
         }, delay);
       };
     }
